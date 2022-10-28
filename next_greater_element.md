@@ -1,10 +1,10 @@
 
 
-NEXT GREATER ELEMENT TO RIGHT
+ NEXT GREATER ELEMENT TO RIGHT
 #include <bits/stdc++.h>
 using namespace std;
 int main()
-    int a[] = {1, 3, 4, 2};
+int a[] = {1, 3, 4, 2};
     stack<int> st;
     vector<int> ans;
     for (int i = (sizeof(a) / sizeof(int)) - 1; i >= 0; i--)
