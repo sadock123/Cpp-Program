@@ -1,0 +1,22 @@
+#ORG 2000H
+MVI C,06H ;number of data points
+LXI H,2050H ;starting address
+MVI B,00H ;counter
+MVI A,00H ;inital val
+LOOP:
+	MOV A,M  ;mov val in A
+	RRC ;perform right shift
+	JNC SKIP ;go to skip if carry not generated
+	INR B  ;if carry generated increase b(counter val)
+	
+SKIP:
+	INX H ;increase hl pair val
+	DCR C  ;decrease c val to perform right shift on each data point
+	JNZ LOOP ;if c not zero go to loop again
+	MOV A,B ;store fiinal count in A
+	STA 3500H  ;store val at address 3500H
+	HLT ; exit program
+	
+#ORG 2050H
+#DB 00H,01H,05H,06H,08H,07H
+
